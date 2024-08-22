@@ -1,0 +1,28 @@
+server:
+
+  port: 8080  # Defines the port your application will run on
+  servlet:
+    context-path: /hotelportal  # Sets a base context path for the application
+
+logging:
+  level:
+    root: INFO
+    com.starthotel.hotelportal: DEBUG  # Enables debug logging for your application's package
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"  # Sets the log format for the console
+
+spring:
+  datasource:
+    username: root
+    url : jdbc:mysql://localhost:3306/star_Hotel_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+      file-size-threshold: 2KB
