@@ -1,8 +1,6 @@
 server:
 
   port: 8080  # Defines the port your application will run on
-  servlet:
-    context-path: /hotelportal  # Sets a base context path for the application
 
 logging:
   level:
@@ -16,6 +14,8 @@ spring:
     username: root
     url : jdbc:mysql://localhost:3306/star_Hotel_db
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
   jpa:
     show-sql: true
     hibernate:
