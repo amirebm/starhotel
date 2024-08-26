@@ -5,11 +5,17 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
   const [roomTypes, setRoomTypes] = useState([""]);
   const [showNewRoomTypeInput, setShowNewRoomTypeInput] = useState(false);
   const [newRoomType, setNewRoomType] = useState("");
+  const [error, setError] = useState(""); // Add error state
 
   useEffect(() => {
-    getRoomTypes().then((data) => {
-      setRoomTypes(data);
-    });
+    getRoomTypes()
+      .then((data) => {
+        setRoomTypes(data);
+      })
+      .catch((error) => {
+        setError("Failed to load room types"); // Handle error
+        console.error(error);
+      });
   }, []);
 
   const handleNewRoomTypeInputChange = (e) => {
@@ -26,6 +32,7 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
 
   return (
     <>
+      {error && <p className="text-danger">{error}</p>}
       {roomTypes.length > 0 && (
         <div>
           <select

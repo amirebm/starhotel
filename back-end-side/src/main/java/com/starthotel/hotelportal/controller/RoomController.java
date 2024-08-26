@@ -30,7 +30,6 @@ public class RoomController {
                 savedRoom.getRoomPrice());
         return ResponseEntity.ok(response);
     }
-
     @GetMapping("/room/types")
     public List<String> getRoomTypes(){
 
